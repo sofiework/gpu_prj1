@@ -94,11 +94,11 @@ Your assignment will be graded based on the following criteria:
 ## Additional Resources
 You may find these resources helpful
 
-- NVIDIA CUDA Toolkit Documentation: https://developer.nvidia.com/cuda-toolkitLinks to an external site.
-- CUDA Programming Guide: https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.htmlLinks to an external site.
-- CUDA C++ best practice guide (10.2.3.3)  (https://docs.nvidia.com/cuda/cuda-c-best-practices-guide/index.html#shared-memory-in-matrix-multiplication-c-aatLinks to an external site.)
-- Tiled matrix multiplication:  https://penny-xu.github.io/blog/tiled-matrix-multiplication Links to an external site.
-- YouTube videos https://youtu.be/jhmgti7OKlQ Links to an external site.
+- NVIDIA CUDA Toolkit Documentation: https://developer.nvidia.com/cuda-toolkit
+- CUDA Programming Guide: https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html
+- CUDA C++ best practice guide (10.2.3.3)  https://docs.nvidia.com/cuda/cuda-c-best-practices-guide/index.html#shared-memory-in-matrix-multiplication-c-aat
+- Tiled matrix multiplication:  https://penny-xu.github.io/blog/tiled-matrix-multiplication
+- YouTube videos https://youtu.be/jhmgti7OKlQ
  
 ## Optional tasks
 No submission is required for this section and it is not part of your grade.
