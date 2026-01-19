@@ -10,7 +10,7 @@ These instructions assume that you have already access to the PACE ICE cluster. 
 
 ### Task #1: Connect to the ICE Cluster
 
-1. Connect to the Georgia Tech VPN using teh GlobalProtect VPN Client.
+1. Connect to the Georgia Tech VPN using the GlobalProtect VPN Client.
 
     - You can go to https://vpn.gatech.edu and login with your GaTech username. 
     - Review the "Getting Started With VPN FAQ"
