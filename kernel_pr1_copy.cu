@@ -24,7 +24,7 @@ bool compareMatrices(float* C, float* D, int size)
     return true;
 }
 
-bool printMatrices(float* C, float* D, int size) 
+void printMatrices(float* C, float* D, int size) 
 {
     int bad = 0;
     const int maxPrint = 10;
@@ -42,7 +42,7 @@ bool printMatrices(float* C, float* D, int size)
     // total ... of {size} mismatch.
     printf("total %d of %d mismatch", bad, size);
     }
-}
+
 
 // Function to initialize matrices A and B
 void initializeMatrices(float* matrix, int size) 
