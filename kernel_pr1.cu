@@ -60,12 +60,38 @@ void matrixMultiplication(float* A, float* B, float* D, int w)
 __global__ void MatrixMulCUDA(float* C, float* A, float* B, int matrixWidth) 
 {
     // Allocate shared memory to be used by a block
+    __shared__ float A_tile[TILE_WIDTH][TILE_WIDTH];
+    __shared__ float B_tile[TILE_WIDTH][TILE_WIDTH];
+
+    // indexing
+    int bx = blockIdx.x; int by = blockIdx.y;
+    int tx = threadIdx.x; int ty = threadIdx.y;
+
+    int ROW = by * TILE_WIDTH + ty; // global index of C_tile
+    int COL = bx * TILE_WIDTH + tx;
+
+    // loop over phases
+    float Cvalue = 0.0;
+    for (int ph = 0; ph < matrixWidth/TILE_WIDTH; ph++) {
+        // Load values into the shared memory (row * width + col)
+        A_tile[ty][tx] = A[ROW * matrixWidth + (ph * TILE_WIDTH + tx)];
+        B_tile[ty][tx] = B[(ph * TILE_WIDTH + ty) * matrixWidth + COL];
+        
+        // sync for load before computation
+        __syncthreads();
+
+        // Perform multiplication and accumulate results into thread-local memory
+        for (int k = 0; k < TILE_WIDTH; k ++) {
+            Cvalue += A_tile[ty][k] * B_tile[k][tx];
+        }
+
+        // sync for computation before next load
+        __syncthreads();
+    }
+
+    // write back to global memory
+    C[ROW * matrixWidth + COL] = Cvalue;
     
-    // Load values into the shared memory
-
-    // Perform multiplication and accumulate results into thread-local memory
-
-    // Synchronize threads of a block as required  
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
