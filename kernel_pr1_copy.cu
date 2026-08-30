@@ -34,7 +34,8 @@ void printMatrices(float* C, float* D, int size)
         if (err > 1e-3) {
             if (bad < maxPrint) {
                 // mismatch at {i} element
-                printf("mismatch at [%d]: cpu=%f gpu=%f\n", i, C[i], D[i]);
+                // gpu result in C, cpu in D
+                printf("mismatch at [%d]: cpu=%f gpu=%f\n", i, D[i], C[i]);
             }
             bad++;
         }
